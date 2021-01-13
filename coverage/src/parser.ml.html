@@ -166,9 +166,9 @@ type result =
   ]
 
 let parse lexbuf source =
-  <span data-count="45">t</span>ry
+  <span data-count="63">t</span>ry
     let result = Menhir_parser.toml Lexer.tomlex lexbuf in
-    <span data-count="41">`</span>Ok result
+    <span data-count="59">`</span>Ok result
   with
   | (<span data-count="0">M</span>enhir_parser.Error | <span data-count="4">F</span>ailure _) as error -&gt;
     let formatted_error_msg =
@@ -190,7 +190,7 @@ let parse lexbuf source =
     in
     <span data-count="4">`</span>Error (msg, location)
 
-let from_string s = <span data-count="43">p</span>arse (Lexing.from_strin<span data-count="43">g</span> s) "&lt;string&gt;"
+let from_string s = <span data-count="61">p</span>arse (Lexing.from_strin<span data-count="61">g</span> s) "&lt;string&gt;"
 
 let from_channel c = <span data-count="0">p</span>arse (Lexing.from_channe<span data-count="0">l</span> c) "&lt;channel&gt;"
 
@@ -208,8 +208,8 @@ exception Error of (string * location)
 
 (** A combinator to force the result. Raise [Error] if the result was [`Ok] *)
 let unsafe result =
-  <span data-count="45">m</span>atch result with
-  | <span data-count="41">`</span>Ok toml_table -&gt; toml_table
+  <span data-count="63">m</span>atch result with
+  | <span data-count="59">`</span>Ok toml_table -&gt; toml_table
   | <span data-count="4">`</span>Error (msg, location) -&gt; raise (Error (msg, location))
 </code></pre>
       </div>
